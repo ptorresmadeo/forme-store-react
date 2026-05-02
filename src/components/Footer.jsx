@@ -6,9 +6,9 @@ function Footer() {
         <span>FOR ME STUDIOS © 2026</span>
       </div>
       <div className="footer-links">
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="TikTok">TK</a>
-        <a href="#" aria-label="WhatsApp">WA</a>
+        <a href="https://instagram.com" aria-label="Instagram">IG</a>
+        <a href="https://tiktok.com" aria-label="TikTok">TK</a>
+        <a href="https://whatsapp.com" aria-label="WhatsApp">WA</a>
       </div>
     </footer>
   );
