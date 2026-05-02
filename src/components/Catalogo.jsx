@@ -1,19 +1,21 @@
 const productos = {
-  him: [
-    { id: 1, nombre: 'Zip Hoodie Tartan', precio: 38500, emoji: '🧥', badge: 'NUEVO', tallas: ['S','M','L','XL'] },
-    { id: 2, nombre: '6-Panel Star Cap', precio: 14000, emoji: '🧢', badge: 'SOLD OUT', tallas: ['ONE SIZE'] },
-    { id: 3, nombre: 'Cargo Baggy', precio: 26900, emoji: '👖', badge: 'LAST', tallas: ['M','L'] },
-    { id: 4, nombre: 'Oversized Tee', precio: 18900, emoji: '👕', badge: 'NUEVO', tallas: ['S','M','L','XL'] },
-  ],
-  her: [
-    { id: 5, nombre: 'Crop Hoodie', precio: 32000, emoji: '🧥', badge: 'NUEVO', tallas: ['XS','S','M'] },
-    { id: 6, nombre: 'Mini Skirt Tartan', precio: 22000, emoji: '👗', badge: 'NUEVO', tallas: ['XS','S','M','L'] },
-    { id: 7, nombre: 'Baby Tee Star', precio: 16500, emoji: '👕', badge: 'LAST', tallas: ['XS','S','M'] },
-    { id: 8, nombre: 'Bucket Hat', precio: 12000, emoji: '🎩', badge: 'SOLD OUT', tallas: ['ONE SIZE'] },
+  todos: [
+    { id: 1, nombre: 'Zip Hoodie Tartan', precio: 38500, emoji: '🧥', badge: 'NUEVO', tallas: ['S','M','L','XL'], categoria: 'him' },
+    { id: 2, nombre: '6-Panel Star Cap', precio: 14000, emoji: '🧢', badge: 'SOLD OUT', tallas: ['ONE SIZE'], categoria: 'him' },
+    { id: 3, nombre: 'Cargo Baggy', precio: 26900, emoji: '👖', badge: 'LAST', tallas: ['M','L'], categoria: 'him' },
+    { id: 4, nombre: 'Oversized Tee', precio: 18900, emoji: '👕', badge: 'NUEVO', tallas: ['S','M','L','XL'], categoria: 'him' },
+    { id: 5, nombre: 'Crop Hoodie', precio: 32000, emoji: '🧥', badge: 'NUEVO', tallas: ['XS','S','M'], categoria: 'her' },
+    { id: 6, nombre: 'Mini Skirt Tartan', precio: 22000, emoji: '👗', badge: 'NUEVO', tallas: ['XS','S','M','L'], categoria: 'her' },
+    { id: 7, nombre: 'Baby Tee Star', precio: 16500, emoji: '👕', badge: 'LAST', tallas: ['XS','S','M'], categoria: 'her' },
+    { id: 8, nombre: 'Bucket Hat', precio: 12000, emoji: '🎩', badge: 'SOLD OUT', tallas: ['ONE SIZE'], categoria: 'her' },
   ]
 };
 
 function Catalogo({ categoria, cambiarCategoria, agregarAlCarrito }) {
+  const productosFiltrados = categoria === 'todos'
+    ? productos.todos
+    : productos.todos.filter(p => p.categoria === categoria);
+
   return (
     <div>
       <section className="categorias" id="categorias" aria-label="Categorías">
@@ -37,7 +39,7 @@ function Catalogo({ categoria, cambiarCategoria, agregarAlCarrito }) {
           <span>VER TODO →</span>
         </div>
         <div className="productos-grid">
-          {productos[categoria].map(p => (
+          {productosFiltrados.map(p => (
             <article key={p.id} className="producto-card">
               <div className="producto-img">
                 <span className={`producto-badge ${p.badge === 'SOLD OUT' ? 'sold' : ''}`}>

@@ -11,7 +11,7 @@ import TransicionCatalogo from './components/TransicionCatalogo';
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [categoria, setCategoria] = useState('him');
+  const [categoria, setCategoria] = useState('todos');
   const [carrito, setCarrito] = useState([]);
   const [transicion, setTransicion] = useState(null);
 
