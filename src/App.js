@@ -28,13 +28,9 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const cambiarCategoria = (nuevaCategoria) => {
-    setTransicion(nuevaCategoria);
-    setTimeout(() => {
-      setCategoria(nuevaCategoria);
-      setTransicion(null);
-    }, 1100);
-  };
+const cambiarCategoria = (nuevaCategoria) => {
+  setCategoria(nuevaCategoria);
+};
 
   const agregarAlCarrito = (producto) => {
     setCarrito(prev => {
