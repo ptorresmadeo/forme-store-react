@@ -55,7 +55,7 @@ body {
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 99;
   background: var(--blanco);
   border-bottom: 1px solid var(--borde);
   padding: 14px 40px;
@@ -764,6 +764,7 @@ footer {
   top: 18px;
   left: 30px;
   transform: translate(0, 0);
+
 }
 
 .hero-logo-img {
