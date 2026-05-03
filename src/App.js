@@ -14,9 +14,18 @@ function App() {
   const [categoria, setCategoria] = useState('todos');
   const [carrito, setCarrito] = useState([]);
   const [transicion, setTransicion] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 2000);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 80);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const cambiarCategoria = (nuevaCategoria) => {
@@ -41,8 +50,8 @@ function App() {
     <div className="App">
       {loading && <Loader />}
       {transicion && <TransicionCatalogo categoria={transicion} />}
-      <Navbar carrito={carrito} />
-      <Hero />
+      <Navbar carrito={carrito} scrolled={scrolled} />
+      <Hero scrolled={scrolled} />
       <Catalogo
         categoria={categoria}
         cambiarCategoria={cambiarCategoria}

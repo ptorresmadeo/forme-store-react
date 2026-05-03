@@ -1,11 +1,10 @@
-function Navbar({ carrito }) {
+function Navbar({ carrito, scrolled }) {
   const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
 
   return (
     <header className="navbar" role="banner">
-      <div className="logo">
-        <img src="/logo.png" alt="For Me Studios" className="logo-img" />
-        <span>FOR ME <strong>STUDIOS</strong></span>
+      <div className={`navbar-logo-wrap ${scrolled ? 'scrolled' : ''}`}>
+        <img src="/logo.png" alt="For Me Studios" className="navbar-logo-img" />
       </div>
       <nav role="navigation" aria-label="Menú principal">
         <ul>
